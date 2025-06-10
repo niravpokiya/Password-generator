@@ -2,7 +2,8 @@
 
 A sleek, modern, and responsive **Password Generator** built with **React**, **Tailwind CSS**, and a hint of **glassmorphism** — designed to create strong, secure, and customizable passwords.
 
-![App](https://github.com/user-attachments/assets/263b492d-3401-4432-8ce3-9fa726e77a46)
+![Preview](https://github.com/user-attachments/assets/7512edb4-0488-42f9-acef-d975ba335160)
+
 
 
 ---
