@@ -40,3 +40,16 @@
 .read-the-docs {
   color: #888;
 }
+
+@keyframes glass {
+  0% {
+    transform: translateX(-100%) translateY(-100%);
+  }
+  100% {
+    transform: translateX(100%) translateY(100%);
+  }
+}
+
+.animate-glass {
+  animation: glass 3s linear infinite;
+}

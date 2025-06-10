@@ -43,94 +43,65 @@ function App() {
     window.navigator.clipboard.writeText(Password)
   }, [Password])
 
-    return (
-    <>
-      <div className="rounded-2xl flex items-center justify-center bg-gradient-to-br from-blue-600 via-purple-600 to-pink-500 p-4 selection:bg-pink-500">
-        <div className="backdrop-blur-lg bg-white/10 border border-white/20 shadow-2xl rounded-3xl p-8 max-w-md w-full text-white">
-          <h1 className="text-3xl sm:text-4xl font-extrabold text-center mb-6 drop-shadow">
-            🔐 Password Generator
-          </h1>
+   return (
+    <div className="rounded-2xl flex items-center justify-center bg-gradient-to-br from-blue-600 via-purple-600 to-pink-500 p-4 selection:bg-pink-500 selection:text-white">
+      <div className="relative overflow-hidden backdrop-blur-lg bg-white/10 border border-white/20 shadow-2xl rounded-3xl p-8 max-w-md w-full text-white">
 
-          <div className="flex items-center gap-2 mb-6">
-            <input
-              type="text"
-              value={Password}
-              ref={reference}
-              readOnly
-              className="flex-1 h-12 rounded-lg bg-black/70 px-3 text-white placeholder-gray-400 focus:outline-none shadow-inner"
-            />
-            <CopyButton textToCopy={Password} Reference = {reference}  />
-          </div>
+        <span className="absolute -top-[150%] -left-[150%] w-[300%] h-[300%] bg-gradient-to-r from-white/0 via-white/20 to-white/0 animate-glass z-0 rotate-[45deg] pointer-events-none" />
 
-          <div className="mb-6">
-            <label htmlFor="length" className="block text-sm font-semibold mb-2">
-              Length: <span className="font-bold">{length}</span>
-            </label>
-            <input
-              type="range"
-              name="length"
-              id="length"
-              min={4}
-              max={100}
-              value={length}
-              onChange={(e) => setLength(e.target.value)}
-              className="w-full h-2 bg-gradient-to-r from-blue-400 to-pink-400 rounded-full appearance-none cursor-pointer"
-            />
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div className="flex items-center">
-              <input
-                type="checkbox"
-                id="charactersAllowed"
-                checked={characterAllowed || !(numbersAllowed || specialCharAllowed)}
-                onChange={(e) => setCharacterAllowed(e.target.checked)}
-                className="w-4 h-4 text-pink-500 bg-gray-900 border-gray-300 rounded focus:ring-pink-500"
-              />
-              <label
-                htmlFor="charactersAllowed"
-                className="ml-2 text-sm font-medium"
-              >
-                Characters
-              </label>
-            </div>
-
-            <div className="flex items-center">
-              <input
-                type="checkbox"
-                id="NumbersAllowed"
-                checked={numbersAllowed}
-                onChange={(e) => setNumbersAllowed(e.target.checked)}
-                className="w-4 h-4 text-blue-500 bg-gray-900 border-gray-300 rounded focus:ring-blue-500"
-              />
-              <label
-                htmlFor="NumbersAllowed"
-                className="ml-2 text-sm font-medium"
-              >
-                Numbers
-              </label>
-            </div>
-
-            <div className="flex items-center sm:col-span-2">
-              <input
-                type="checkbox"
-                id="SpecialCharactersAllowed"
-                checked={specialCharAllowed}
-                onChange={(e) => setSpecialCharAllowed(e.target.checked)}
-                className="w-4 h-4 text-purple-500 bg-gray-900 border-gray-300 rounded focus:ring-purple-500"
-              />
-              <label
-                htmlFor="SpecialCharactersAllowed"
-                className="ml-2 text-sm font-medium"
-              >
-                Special Characters
-              </label>
-            </div>
-          </div>
+        <h1 className="text-3xl sm:text-4xl font-extrabold text-center mb-6 drop-shadow relative z-10">
+          🔐 Password Generator
+        </h1>
+        <div className="flex items-center gap-2 mb-6 relative z-10">
+          <input
+            type="text"
+            value="GeneratedPassword123!"
+            readOnly
+            className="flex-1 h-12 rounded-lg bg-black/70 px-3 text-white placeholder-gray-400 focus:outline-none shadow-inner selection:bg-pink-500 selection:text-white"
+          />
+          <button
+            className="px-4 py-2 bg-pink-500 hover:bg-pink-600 rounded-lg text-white font-semibold transition shadow"
+          >
+            Copy
+          </button>
         </div>
+
+        {/* Range Slider */}
+        <div className="mb-6 relative z-10">
+          <label htmlFor="length" className="block mb-2 text-sm font-medium">
+            Length: <span className="font-bold text-white">8</span>
+          </label>
+          <input
+            id="length"
+            type="range"
+            min={4}
+            max={100}
+            className="w-full accent-pink-500"
+          />
+        </div>
+
+        {/* Toggles */}
+        <div className="flex flex-col sm:flex-row sm:flex-wrap gap-4 relative z-10">
+          <label className="flex items-center space-x-2">
+            <input type="checkbox" defaultChecked className="w-4 h-4 text-pink-500 focus:ring-pink-400" />
+            <span>Characters</span>
+          </label>
+
+          <label className="flex items-center space-x-2">
+            <input type="checkbox" className="w-4 h-4 text-pink-500 focus:ring-pink-400" />
+            <span>Numbers</span>
+          </label>
+
+          <label className="flex items-center space-x-2">
+            <input type="checkbox" className="w-4 h-4 text-pink-500 focus:ring-pink-400" />
+            <span>Special Characters</span>
+          </label>
+        </div>
+
       </div>
-    </>
-  );
+    </div>
+  )
+
 
 }
 
